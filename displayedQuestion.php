@@ -8,10 +8,13 @@
 
     if (isset($_POST['qID'])) {
         $_SESSION['qID'] = $_POST['qID'];
-    } 
+    }
+    if (isset($_POST['deviceID'])) {
+        $_SESSION['deviceID'] = $_POST['deviceID'];
+    }
 
     $answers = getQuestionAnswers($manager, $_SESSION['qID']);
-    $success = setQuestion($manager, $_SESSION['qID'], 4);
+    $success = setQuestion($manager, $_SESSION['qID'], $_SESSION['deviceID']);
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +51,6 @@
     </head>
     
     <body>
-        <?php echo $success ?>
         <div class="container">
             <div class="jumbotron">
                 <h1 id="question"></h1>

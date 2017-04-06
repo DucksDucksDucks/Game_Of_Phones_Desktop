@@ -111,14 +111,15 @@
             var qText, qID, deviceID;
             qID = id;
             qText = document.getElementById(id).innerHTML;
-            deviceID = <?php echo $_SESSION['deviceID']; ?>;
+            deviceID = <?php echo $_SESSION['deviceID']?>;
             alert(deviceID);
+            alert(qID);
             sessionStorage.setItem("text", qText);
             
             $.ajax({
                 type: "POST",
                 url: "displayedQuestion.php",
-                data: ({qID : qID}),
+                data: ({qID : qID, deviceID : deviceID}),
                 success: function(data) {
                     window.open("displayedQuestion.php", "Displayed Question")
                 }

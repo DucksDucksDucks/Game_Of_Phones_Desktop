@@ -1,6 +1,7 @@
 <?php
     session_start();
     require '/phpScripts/getQuestionAnswers.php';
+    require '/phpScripts/setQuestion.php';
     include_once '/database/dataManager.php';
     include_once'/phpModel/questionAnswer.class.php';
     $manager = new DataManager;
@@ -10,6 +11,7 @@
     } 
 
     $answers = getQuestionAnswers($manager, $_SESSION['qID']);
+    $success = setQuestion($manager, $_SESSION['qID'], 4);
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +48,7 @@
     </head>
     
     <body>
+        <?php echo $success ?>
         <div class="container">
             <div class="jumbotron">
                 <h1 id="question"></h1>

@@ -57,7 +57,11 @@
                 <!-- Question Table -->
                 <div class="panel panel-default col-md-12">
                     <h3 class="float-left" style="float:left;">Questions:</h3>
-                    <p class="float-right" style="float:right;">test text</p>
+                    <span class="input-group-btn">
+                        <a class="btn btn-link btn-number" data-type="plus" data-field="quant[1]" style="float:right; margin-top:1em;" href="addQuestion.php">
+                            Add Question <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </span>
                     <table class="table">
                         <thead>
                             <tr>

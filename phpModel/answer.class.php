@@ -2,43 +2,55 @@
     class answer implements JsonSerializable {
         private $id;
         private $deviceID;
-        private $submittedAnswer;
+        private $answerText;
+        private $subAns;
+        private $nickname;
         private $displayed;
         
         //Constructers
-        function __construct($id, $deviceID, $submittedAnswer, $displayed) {
+        function __construct($id, $deviceID, $answerText, $subAns, $nickname, $displayed) {
 	  	    $this->setID($id);
 	  	    $this->setDeviceID($deviceID);
-            $this->setSubmittedAnswer($submittedAnswer);
+            $this->setAnswerText($submittedAnswer);
+            $this->setsubAns($subAns);
+            $this->setNickname($nickname);
             $this->setDisplayed($displayed);
         }
         
         //Setters
         public function setID($id) {$this->id=$id;}
         public function setDeviceID($deviceID) {$this->deviceID=$deviceID;}
-        public function setSubmittedAnswer($submittedAnswer) {$this->submittedAnswer=$submittedAnswer;}
+        public function setAnswerText($answerText) {$this->answerText=$answerText;}
+        public function setSubAns($subAns) {$this->subAns=$subAns;}
+        public function setNickname($nickname) {$this->nickname=$nickname;}
         public function setDisplayed($displayed) {$this->displayed=$displayed;}
         
         //Getters
         public function getID() {return $this->id;}
         public function getDeviceID() {return $this->deviceID;}
-        public function getSubmittedAnswer() {return $this->submittedAnswer;}
+        public function getAnswerText() {return $this->answerText;}
+        public function getSubAns() {return $this->subAns;}
+        public function getNickname() {return $this->nickname;}
         public function getDisplayed() {return $this->displayed;}
         
         // Json Seralize Method
 	    public function jsonSerialize() {
-	  	    return ['id'=>$this->getID(),
-	  	        'deviceID'=>$this->getDeviceID(),
-	  	        'submittedAnswer'=>$this->setSubmittedAnswer(),
-                'displayed'=>$this->getDisplayed()];
+	  	    return ['id'=>$this->setID(),
+	  	        'deviceID'=>$this->setDeviceID(),
+	  	        'answerText'=>$this->setAnswerText(),
+                'subAns'=>$this->setSubAns(),
+                'nickname'=>$this->setNickname(),
+                'displayed'=>$this->setDisplayed()];
 	    }
 	    
 	    public function __toString() {
    	        $answerObject =  'Answer: ' .
-                'id=>' . $this->getCourseID() . ' ' . 
-   	            'deviceID=>' . $this->getDeviceID() . ' ' .
+                'id=>' . $this->setCourseID() . ' ' . 
+   	            'deviceID=>' . $this->setDeviceID() . ' ' .
    	            'submittedAnswer=>' . $this->setSubmittedAnswer().' '.
-                'displayed=>' . $this->getDisplayed(); 
+                'subAns' . $this->setSubAns().' '.
+                'nickname' . $this->setNickname().' '.
+                'displayed=>' . $this->setDisplayed(); 
 	        return $answerObject;
         }
     }

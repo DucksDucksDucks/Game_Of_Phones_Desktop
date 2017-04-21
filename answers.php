@@ -4,7 +4,7 @@
     include_once '/database/dataManager.php';
     include_once'/phpModel/answer.class.php';
     $manager = new DataManager;
-    $answers = getSubmittedAnswer($manager, $_SESSION['qID']);
+    $answers = getSubmittedAnswer($manager, $_SESSION['qID'], $_SESSION['deviceID']);
     $_SESSION['aText']="";
 ?>
 
@@ -61,8 +61,8 @@
                             <?php
                                 foreach ($answers as $answer) {
                                     echo '<tr>
-                                        <td value="'.$answer->getDeviceID().'">'.$answer->getDeviceID().'</td>
-                                        <td id="'.$answer->getDeviceID().'">'.$answer->getSubmittedAnswer().'</td>
+                                        <td value="'.$answer->getDeviceID().'">'.$answer->getNickname().'</td>
+                                        <td id="'.$answer->getDeviceID().'">'.$answer->getSubAnswer().'</td>
                                         <td><button type="button" class="btn btn-default answerDisplay" name="displayAnswer" onclick="displayAnswer('.$answer->getDeviceID().')" >Display Answer</td>
                                     </tr>';
                                 };

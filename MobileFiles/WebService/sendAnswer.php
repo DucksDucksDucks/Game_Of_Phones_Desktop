@@ -7,14 +7,15 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     $currentQID = $_POST['currentQID'];
+    $teacherID = $_POST['teacherID'];
     $deviceID = $_POST['deviceID'];
     $answer = $_POST['answer'];
         
         // set up a prepared statement to modify database
         
-        $query = "INSERT INTO submittedanswers (q_id, p_device_id, sub_ans)";
-        $query .= "values(?,?,?);";
-        $values = array($currentQID, $deviceID, $answer);
+        $query = "INSERT INTO submittedanswers (q_id, teacher_id, p_device_id, sub_ans)";
+        $query .= "values(?,?,?,?);";
+        $values = array($currentQID, $teacherID, $deviceID, $answer);
 		
 	    // connect to the database and execute the query.	
 		$manager->connect();

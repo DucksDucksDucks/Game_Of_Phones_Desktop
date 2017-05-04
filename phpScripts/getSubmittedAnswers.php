@@ -19,7 +19,7 @@
             // process the results placing them in an array
             $resultArray = array();
             while ($row = $result->fetch()) {
-                $answer = new answer($row['q_id'], $row['p_device_id'], $row['a_text'], $row['nickname'], $row[displayed]);
+                $answer = new answer($row['q_id'], $row['p_device_id'], $row['a_text'], $row["sub_ans"], $row['nickname'], $row['displayed']);
                 $answerArray[] = $answer;
                 extract($row);
             }
